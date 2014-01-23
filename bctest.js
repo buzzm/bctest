@@ -85,7 +85,9 @@ var BCTest = (function() {
 		    if(t['collection']) {
 			cn = t['collection'];
 			db[cn].getIndexes().forEach(function(a){if(a.name != "_id_"){idx.push(a.name)}});
-			idxs = idx.join();
+			if(idx.lenth > 0) {
+			    idxs = idx.join(); // override "none"
+			}
 		    }
 
 		    funcstr = String(t['f']); // stringify the function itself!  neat!
